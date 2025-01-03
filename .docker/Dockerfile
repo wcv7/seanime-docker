@@ -16,7 +16,7 @@ COPY --from=node-builder /tmp/build/out /tmp/build/web
 
 WORKDIR /tmp/build
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o seanime -trimpath -ldflags="-s -w"
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=arm go build -o seanime -trimpath -ldflags="-s -w"
 
 # Stage 3: Final Stage (Alpine Linux with qBittorrent, and Supervisord)
 FROM alpine:latest
